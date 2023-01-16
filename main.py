@@ -1,7 +1,7 @@
 import os
 
 
-def uniq(new_name_without_spaces):
+def make_unique_name(new_name_without_spaces):
     filename, extension = os.path.splitext(new_name_without_spaces)
     counter = 1
     while os.path.exists(new_name_without_spaces):
@@ -13,7 +13,6 @@ def uniq(new_name_without_spaces):
 os.chdir('D:\\test')
 
 for folder in os.listdir():
-    if os.path.isdir(folder):
+    if os.path.isdir(folder) and '  ' in folder:
         new_name_without_spaces = ' '.join(folder.split())
-        if os.path.exists(new_name_without_spaces):
-            uniq(new_name_without_spaces)
+        make_unique_name(new_name_without_spaces)
